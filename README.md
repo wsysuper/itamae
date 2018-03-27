@@ -1,0 +1,2 @@
+# itamae
+for server initialization
