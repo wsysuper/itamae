@@ -9,10 +9,12 @@ node.users_to_add.each do |u|
   remote_file "/home/#{u.name}/.vimrc" do
     user "root"
     owner u.name
+    group u.name
   end
   # Aliases
   remote_file "/home/#{u.name}/.bash_aliases" do
     user "root"
     owner u.name
+    group u.name
   end
 end
