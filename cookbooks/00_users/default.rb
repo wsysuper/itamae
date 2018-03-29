@@ -1,3 +1,15 @@
+node.validate! do
+  {
+    groups_to_add: optional(array_of(string)),
+    users_to_delete: optional(array_of(string)),
+    users_to_add: array_of({
+      name: string,
+      groups: optional(array_of(string)),
+      authorized_keys: optional(array_of(string)),
+    }),
+  }
+end
+
 node.groups_to_add.each do |g|
   group g
 end
@@ -30,5 +42,13 @@ node.users_to_add.each do |u|
       group u.name
       content u.authorized_keys.join("\n") + "\n"
     end
+  end
+end
+
+file "/etc/sudoers" do
+  action :edit
+  block do |content|
+    content.gsub!(/^%wheel\tALL=\(ALL\)\tALL/, "# %wheel\tALL=(ALL)\tALL")
+    content.gsub!(/^# %wheel\tALL=\(ALL\)\tNOPASSWD: ALL/, "%wheel\tALL=(ALL)\tNOPASSWD: ALL")
   end
 end
