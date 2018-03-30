@@ -29,10 +29,10 @@ end
 file node.docker.compose.path do
   action :nothing
   mode "755"
-  subscribes :create, "execute[curl -sL #{node.docker.compose.url}#{node.docker.compose.version}/docker-compose-`uname -s`-`uname -m` -o #{node.docker.compose.path}]"
+  subscribes :create, "execute[curl -sL #{node.docker.compose.url}#{node.docker.compose.version}/docker-compose-`uname -s`-`uname -m` -o #{node.docker.compose.path}>/dev/null]"
 end
 
-execute "curl -sL #{node.docker.compose.url}#{node.docker.compose.version}/docker-compose-`uname -s`-`uname -m` -o #{node.docker.compose.path}" do
+execute "curl -sL #{node.docker.compose.url}#{node.docker.compose.version}/docker-compose-`uname -s`-`uname -m` -o #{node.docker.compose.path}>/dev/null" do
   user "root"
   not_if "#{node.docker.compose.path} -v | grep #{node.docker.compose.version}"
 end
