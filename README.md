@@ -37,4 +37,6 @@ You can also run all the recipes from 01~04 at once, just execute something like
 itamae ssh -h hostname -u username -y config.yml recipe.rb
 ```
 
-Have fun with CentOS server!
+Ofcourse you can also configure the `config.yml` file for you own purpose.
+
+Have fun with CentOS server building!
