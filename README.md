@@ -15,7 +15,7 @@ Itamae reference [here](https://github.com/itamae-kitchen/itamae/wiki/Getting-St
 
 ## Execute Server Initialization Recipes
 
-You can choose one or more recipes from the below, using command like:
+You can choose one or more recipes from below, using command like:
 ```
 itamae ssh -h hostname -u username -y config.yml cookbooks/03_docker/default.rb
 ```
