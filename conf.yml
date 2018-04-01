@@ -49,3 +49,10 @@ docker:
     url: https://github.com/docker/compose/releases/download/
     version: 1.20.1
     path: /usr/local/bin/docker-compose
+python3:
+  ius_repo:
+    repo_id: ius/x86_64
+    url: https://rhel7.iuscommunity.org/ius-release.rpm
+    gpg_key: /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+  package: python36u-pip
+  bin_name: python3.6

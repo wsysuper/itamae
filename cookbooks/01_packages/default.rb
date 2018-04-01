@@ -1,3 +1,4 @@
+# validate the config file
 node.validate! do
   {
     packages: array_of(string),

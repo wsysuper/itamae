@@ -1,3 +1,4 @@
+# validate the config file
 node.validate! do
   {
     users_to_add: array_of({
