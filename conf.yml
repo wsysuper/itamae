@@ -48,7 +48,7 @@ docker:
   compose:
     url: https://github.com/docker/compose/releases/download/
     version: 1.20.1
-    path: /usr/local/bin/docker-compose
+    path: /usr/bin/docker-compose
 python3:
   ius_repo:
     repo_id: ius/x86_64
