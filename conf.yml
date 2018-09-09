@@ -47,7 +47,7 @@ docker:
   - lvm2
   compose:
     url: https://github.com/docker/compose/releases/download/
-    version: 1.20.1
+    version: 1.22.0
     path: /usr/bin/docker-compose
 python3:
   ius_repo:
