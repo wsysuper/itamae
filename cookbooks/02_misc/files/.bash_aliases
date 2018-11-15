@@ -3,7 +3,7 @@
 # system
 alias sudo='sudo -E '
 alias vi='vim'
-alias rmdir='rm -r -f'
+alias del='rm -r -f'
 alias u='cd ..'
 alias l='ls -AlhF'
 alias reb='sudo reboot'
