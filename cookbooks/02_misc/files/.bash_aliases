@@ -29,10 +29,13 @@ if docker 1>/dev/null 2>/dev/null; then
     alias dim='docker images'
     alias dcc='docker ps -qf status=exited -f status=created | xargs docker rm'
     alias dcv='docker volume ls -qf dangling=true | xargs docker volume rm'
-    alias dci="dim | grep '<none>' | awk '{print \$3}' | xargs docker rmi -f"
     alias drm='docker rm -f'
     alias drmi='docker rmi'
     alias dswagger='docker run --rm -it -e GOPATH=$HOME/go:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger:0.14.0'
+    dcleanup(){
+        docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+        docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+    }
     dr() {
         docker run -itd --name $2 $1
     }
